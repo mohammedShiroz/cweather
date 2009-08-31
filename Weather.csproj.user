@@ -1,0 +1,16 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PublishUrlHistory>ftp://jmangum.codecall.net/public_html/weather/|ftp://jmangum.codecall.net/public_html/|ftp://jmangum.codecall.net/|ftp://ftp.tryptrecords.com/html/weather/|ftp://ftp.tryptrecords.com/weather/</PublishUrlHistory>
+    <InstallUrlHistory>http://jmangum.codecall.net/weather/|http://jmangum.codecall.net/public_html/weather/|http://www.tryptrecords.com/weather/</InstallUrlHistory>
+    <SupportUrlHistory>
+    </SupportUrlHistory>
+    <UpdateUrlHistory>
+    </UpdateUrlHistory>
+    <BootstrapperUrlHistory>
+    </BootstrapperUrlHistory>
+    <ErrorReportUrlHistory>
+    </ErrorReportUrlHistory>
+    <FallbackCulture>en-US</FallbackCulture>
+    <VerifyUploadedFiles>true</VerifyUploadedFiles>
+  </PropertyGroup>
+</Project>
