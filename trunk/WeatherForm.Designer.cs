@@ -319,6 +319,7 @@
             "1 Hour",
             "2 Hours",
             "4 Hours"});
+            this.comboBoxEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.comboBoxEdit1.Size = new System.Drawing.Size(172, 20);
             this.comboBoxEdit1.TabIndex = 29;
             this.comboBoxEdit1.SelectedIndexChanged += new System.EventHandler(this.comboBoxEdit1_SelectedIndexChanged);
