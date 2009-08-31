@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WeatherForm));
             this.txtCity = new System.Windows.Forms.TextBox();
             this.icnCurrent = new System.Windows.Forms.PictureBox();
@@ -57,11 +58,14 @@
             this.lblDay3Cond = new System.Windows.Forms.Label();
             this.lblDay3 = new System.Windows.Forms.Label();
             this.lblCity = new DevExpress.XtraEditors.LabelControl();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.icnCurrent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icnToday)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icnTomorrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icnDay2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icnDay3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtCity
@@ -289,15 +293,41 @@
             // 
             // lblCity
             // 
-            this.lblCity.Location = new System.Drawing.Point(231, 16);
+            this.lblCity.Location = new System.Drawing.Point(16, 39);
             this.lblCity.Name = "lblCity";
             this.lblCity.Size = new System.Drawing.Size(0, 13);
             this.lblCity.TabIndex = 28;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // comboBoxEdit1
+            // 
+            this.comboBoxEdit1.EditValue = "Select AutoUpdate Interval";
+            this.comboBoxEdit1.Location = new System.Drawing.Point(231, 13);
+            this.comboBoxEdit1.Name = "comboBoxEdit1";
+            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit1.Properties.Items.AddRange(new object[] {
+            "Never",
+            "1 Minute",
+            "2 Minutes",
+            "5 Minutes",
+            "10 Minutes",
+            "30 Minutes",
+            "1 Hour",
+            "2 Hours",
+            "4 Hours"});
+            this.comboBoxEdit1.Size = new System.Drawing.Size(172, 20);
+            this.comboBoxEdit1.TabIndex = 29;
+            this.comboBoxEdit1.SelectedIndexChanged += new System.EventHandler(this.comboBoxEdit1_SelectedIndexChanged);
             // 
             // WeatherForm
             // 
             this.AcceptButton = this.getW;
             this.ClientSize = new System.Drawing.Size(688, 197);
+            this.Controls.Add(this.comboBoxEdit1);
             this.Controls.Add(this.lblCity);
             this.Controls.Add(this.icnDay3);
             this.Controls.Add(this.lblDay3Low);
@@ -332,12 +362,16 @@
             this.MinimizeBox = false;
             this.Name = "WeatherForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Weather";
+            this.Load += new System.EventHandler(this.WeatherForm_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.WeatherForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.icnCurrent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icnToday)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icnTomorrow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icnDay2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icnDay3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,7 +382,7 @@
 
         private Animaonline.WeatherAPI.WeatherData wD;
 
-        private int delay;
+        public int delay;
         private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.PictureBox icnCurrent;
         private System.Windows.Forms.Button getW;
@@ -377,6 +411,8 @@
         private System.Windows.Forms.Label lblDay3Cond;
         private System.Windows.Forms.Label lblDay3;
         private DevExpress.XtraEditors.LabelControl lblCity;
+        private System.Windows.Forms.Timer timer1;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
     }
 }
 

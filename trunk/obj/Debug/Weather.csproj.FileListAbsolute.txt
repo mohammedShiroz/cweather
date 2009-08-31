@@ -43,3 +43,16 @@ C:\Export\Weather\bin\Debug\Weather.exe.config
 C:\Export\cWeather\bin\Debug\Weather.exe.config
 C:\Export\cWeather\obj\Debug\Weather.exe
 C:\Export\cWeather\obj\Debug\Weather.pdb
+C:\Export\cWeather\obj\Debug\ResolveAssemblyReference.cache
+C:\Export\cWeather\obj\Debug\Weather.WeatherForm.resources
+C:\Export\cWeather\obj\Debug\Weather.Properties.Resources.resources
+C:\Export\cWeather\obj\Debug\Weather.csproj.GenerateResource.Cache
+C:\Export\cWeather\obj\Debug\Weather.exe.licenses
+C:\Export\cWeather\bin\Debug\Weather.exe.manifest
+C:\Export\cWeather\bin\Debug\Weather.application
+C:\Export\cWeather\bin\Debug\Weather.exe
+C:\Export\cWeather\bin\Debug\Weather.pdb
+C:\Export\cWeather\bin\Debug\Animaonline Weather API.dll
+C:\Export\cWeather\obj\Debug\Weather.TrustInfo.xml
+C:\Export\cWeather\obj\Debug\Weather.exe.manifest
+C:\Export\cWeather\obj\Debug\Weather.application
