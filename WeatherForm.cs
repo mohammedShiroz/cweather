@@ -32,7 +32,8 @@ namespace Weather
         private void getW_Click(object sender, EventArgs e)
         {
             //Set delay from minutes to milliseconds
-            delay = (delay * 60000);
+            getDelay(comboBoxEdit1.Text);
+            
             
             //Get Weather
             string City = txtCity.Text;
@@ -127,27 +128,33 @@ namespace Weather
 
         private void comboBoxEdit1_SelectedIndexChanged(object sender, EventArgs e)
         {
+        }
+
+        private void getDelay(string Selection)
+        {
             //Set the delay based on User Selection
-            if (comboBoxEdit1.EditValue.ToString() == "Never")
+            if (Selection == "Never")
                 delay = 0;
-            if (comboBoxEdit1.EditValue.ToString() == "1 Minute")
+            if (Selection == "1 Minute")
                 delay = 1;
-            if (comboBoxEdit1.EditValue.ToString() == "2 Minutes")
+            if (Selection == "2 Minutes")
                 delay = 2;
-            if (comboBoxEdit1.EditValue.ToString() == "5 Minutes")
+            if (Selection == "5 Minutes")
                 delay = 5;
-            if (comboBoxEdit1.EditValue.ToString() == "10 Minute")
+            if (Selection == "10 Minute")
                 delay = 10;
-            if (comboBoxEdit1.EditValue.ToString() == "30 Minutes")
+            if (Selection == "30 Minutes")
                 delay = 30;
-            if (comboBoxEdit1.EditValue.ToString() == "1 Hour")
+            if (Selection == "1 Hour")
                 delay = 1 * 60;
-            if (comboBoxEdit1.EditValue.ToString() == "2 Hours")
+            if (Selection == "2 Hours")
                 delay = 2 * 60;
-            if (comboBoxEdit1.EditValue.ToString() == "4 Hours")
+            if (Selection == "4 Hours")
                 delay = 4 * 60;
-            if (comboBoxEdit1.EditValue.ToString() == "Select AutoUpdate Interval")
+            if (Selection == "Select AutoUpdate Interval")
                 delay = 1;
+            delay = (delay * 60000);
+            
         }
     }
 }
