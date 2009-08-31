@@ -40,3 +40,6 @@ C:\Users\Justin and Kira\Downloads\Weather\Weather\obj\Debug\Weather.exe.manifes
 C:\Users\Justin and Kira\Downloads\Weather\Weather\obj\Debug\Weather.application
 C:\Users\Justin and Kira\Downloads\Weather\Weather\bin\Debug\Weather.exe.config
 C:\Export\Weather\bin\Debug\Weather.exe.config
+C:\Export\cWeather\bin\Debug\Weather.exe.config
+C:\Export\cWeather\obj\Debug\Weather.exe
+C:\Export\cWeather\obj\Debug\Weather.pdb
