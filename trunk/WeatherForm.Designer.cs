@@ -300,6 +300,8 @@
             // 
             // timer1
             // 
+            this.timer1.Enabled = global::Weather.Properties.Settings.Default.timerOn;
+            this.timer1.Interval = global::Weather.Properties.Settings.Default.intervalTime;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // comboBoxEdit1
@@ -383,6 +385,7 @@
 
         private Animaonline.WeatherAPI.WeatherData wD;
 
+        private string City;
         public int delay;
         private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.PictureBox icnCurrent;
