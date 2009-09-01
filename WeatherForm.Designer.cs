@@ -57,9 +57,9 @@
             this.lblDay3High = new System.Windows.Forms.Label();
             this.lblDay3Cond = new System.Windows.Forms.Label();
             this.lblDay3 = new System.Windows.Forms.Label();
-            this.lblCity = new DevExpress.XtraEditors.LabelControl();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.lblCity = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.icnCurrent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icnToday)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icnTomorrow)).BeginInit();
@@ -291,13 +291,6 @@
             this.lblDay3.TabIndex = 23;
             this.lblDay3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblCity
-            // 
-            this.lblCity.Location = new System.Drawing.Point(16, 39);
-            this.lblCity.Name = "lblCity";
-            this.lblCity.Size = new System.Drawing.Size(0, 13);
-            this.lblCity.TabIndex = 28;
-            // 
             // timer1
             // 
             this.timer1.Enabled = global::Weather.Properties.Settings.Default.timerOn;
@@ -326,12 +319,22 @@
             this.comboBoxEdit1.TabIndex = 29;
             this.comboBoxEdit1.SelectedIndexChanged += new System.EventHandler(this.comboBoxEdit1_SelectedIndexChanged);
             // 
+            // lblCity
+            // 
+            this.lblCity.AutoSize = true;
+            this.lblCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCity.ForeColor = System.Drawing.Color.Maroon;
+            this.lblCity.Location = new System.Drawing.Point(7, 36);
+            this.lblCity.Name = "lblCity";
+            this.lblCity.Size = new System.Drawing.Size(0, 25);
+            this.lblCity.TabIndex = 30;
+            // 
             // WeatherForm
             // 
             this.AcceptButton = this.getW;
             this.ClientSize = new System.Drawing.Size(688, 197);
-            this.Controls.Add(this.comboBoxEdit1);
             this.Controls.Add(this.lblCity);
+            this.Controls.Add(this.comboBoxEdit1);
             this.Controls.Add(this.icnDay3);
             this.Controls.Add(this.lblDay3Low);
             this.Controls.Add(this.lblDay3High);
@@ -414,9 +417,9 @@
         private System.Windows.Forms.Label lblDay3High;
         private System.Windows.Forms.Label lblDay3Cond;
         private System.Windows.Forms.Label lblDay3;
-        private DevExpress.XtraEditors.LabelControl lblCity;
         private System.Windows.Forms.Timer timer1;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private System.Windows.Forms.Label lblCity;
     }
 }
 
