@@ -20,12 +20,14 @@ namespace Weather
             //Load settings
             delay = Settings.Default.intervalTime;
             txtCity.Text = Settings.Default.defaultCity;
+            if (txtCity.Text == "")
+                txtCity.Text = "Chicago";
             this.Location = Settings.Default.windowPosition;
             comboBoxEdit1.Text = Settings.Default.intervalText;
             timer1.Enabled = Settings.Default.timerOn;
 
             //Get Initial Weather
-            string City = txtCity.Text;
+            City = txtCity.Text;
             getWeather(City);
         }
 
@@ -36,11 +38,11 @@ namespace Weather
             
             
             //Get Weather
-            string City = txtCity.Text;
+            City = txtCity.Text;
             getWeather(City);
 
             //Set timer1
-            if (delay == 0)
+            if (delay < 60000)
             {
                 timer1.Enabled = false;
             }
@@ -54,53 +56,60 @@ namespace Weather
 
         private void getWeather(string City)
         {
-            //Get the data
-            wD = WeatherAPI.GetWeather(LanguageCode.en_US, City);
+            try
+            {
+                //Get the data
+                wD = WeatherAPI.GetWeather(LanguageCode.en_US, City);
 
-            //Set image locations
-            string baseURL = "http://www.google.com";
-            string iconToday = baseURL + wD.iconTODAY;
-            string icon = baseURL + wD.icon;
-            string iconTOMORROW = baseURL + wD.iconTOMORROW;
-            string iconDAY2 = baseURL + wD.iconDAY2;
-            string iconDAY3 = baseURL + wD.iconDAY3;
-            
-            //Set images
-            icnCurrent.ImageLocation = icon;
-            icnDay2.ImageLocation = iconDAY2;
-            icnDay3.ImageLocation = iconDAY3;
-            icnToday.ImageLocation = iconToday;
-            icnTomorrow.ImageLocation = iconTOMORROW;
+                //Set image locations
+                string baseURL = "http://www.google.com";
+                string iconToday = baseURL + wD.iconTODAY;
+                string icon = baseURL + wD.icon;
+                string iconTOMORROW = baseURL + wD.iconTOMORROW;
+                string iconDAY2 = baseURL + wD.iconDAY2;
+                string iconDAY3 = baseURL + wD.iconDAY3;
 
-            //Current Conditions
-            lblCity.Text = wD.city;
-            lblCurrentCond.Text = wD.condition;
-            lblCurrentF.Text = "Temperature: " + wD.temp_f.ToString() + "°F";
-            lblWind.Text = wD.wind_condition;
+                //Set images
+                icnCurrent.ImageLocation = icon;
+                icnDay2.ImageLocation = iconDAY2;
+                icnDay3.ImageLocation = iconDAY3;
+                icnToday.ImageLocation = iconToday;
+                icnTomorrow.ImageLocation = iconTOMORROW;
 
-            //Day 2's Conditions
-            lblDay2.Text = wD.day_of_weekDAY2;
-            lblDay2Cond.Text = wD.conditionDAY2;
-            lblDay2High.Text = "High:  " + wD.highDAY2.ToString() + "°F";
-            lblDay2Low.Text = "Low:  " + wD.lowDAY2.ToString() + "°F";
+                //Current Conditions
+                lblCity.Text = wD.city;
+                lblCurrentCond.Text = wD.condition;
+                lblCurrentF.Text = "Temperature: " + wD.temp_f.ToString() + "°F";
+                lblWind.Text = wD.wind_condition;
 
-            //Day 3's Conditions
-            lblDay3.Text = wD.day_of_weekDAY3;
-            lblDay3Cond.Text = wD.conditionDAY3;
-            lblDay3High.Text = "High:  " + wD.highDAY3.ToString() + "°F";
-            lblDay3Low.Text = "Low:  " + wD.lowDAY3.ToString() + "°F";
+                //Day 2's Conditions
+                lblDay2.Text = wD.day_of_weekDAY2;
+                lblDay2Cond.Text = wD.conditionDAY2;
+                lblDay2High.Text = "High:  " + wD.highDAY2.ToString() + "°F";
+                lblDay2Low.Text = "Low:  " + wD.lowDAY2.ToString() + "°F";
 
-            //Today's Conditions
-            lblToday.Text = wD.day_of_weekTODAY;
-            lblTodayCond.Text = wD.conditionTODAY;
-            lblTodayHigh.Text = "High:  " + wD.highTODAY.ToString() + "°F";
-            lblTodayLow.Text = "Low:  " + wD.lowTODAY.ToString() + "°F";
+                //Day 3's Conditions
+                lblDay3.Text = wD.day_of_weekDAY3;
+                lblDay3Cond.Text = wD.conditionDAY3;
+                lblDay3High.Text = "High:  " + wD.highDAY3.ToString() + "°F";
+                lblDay3Low.Text = "Low:  " + wD.lowDAY3.ToString() + "°F";
 
-            //Tomorrow's Conditions
-            lblTomorrow.Text = wD.day_of_weekTOMORROW;
-            lblTomorrowCond.Text = wD.conditionTOMORROW;
-            lblTomorrowHigh.Text = "High:  " + wD.highTOMORROW.ToString() + "°F";
-            lblTomorrowLow.Text = "Low:  " + wD.lowTOMORROW.ToString() + "°F";
+                //Today's Conditions
+                lblToday.Text = wD.day_of_weekTODAY;
+                lblTodayCond.Text = wD.conditionTODAY;
+                lblTodayHigh.Text = "High:  " + wD.highTODAY.ToString() + "°F";
+                lblTodayLow.Text = "Low:  " + wD.lowTODAY.ToString() + "°F";
+
+                //Tomorrow's Conditions
+                lblTomorrow.Text = wD.day_of_weekTOMORROW;
+                lblTomorrowCond.Text = wD.conditionTOMORROW;
+                lblTomorrowHigh.Text = "High:  " + wD.highTOMORROW.ToString() + "°F";
+                lblTomorrowLow.Text = "Low:  " + wD.lowTOMORROW.ToString() + "°F";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void WeatherForm_Load(object sender, EventArgs e)
@@ -123,7 +132,7 @@ namespace Weather
         private void timer1_Tick(object sender, EventArgs e)
         {
             //Refresh Weather Data
-            getWeather(txtCity.Text);
+            getWeather(City);
         }
 
         private void comboBoxEdit1_SelectedIndexChanged(object sender, EventArgs e)
