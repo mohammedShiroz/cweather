@@ -8,14 +8,14 @@
     <Setting Name="windowPosition" Type="System.Drawing.Point" Scope="User">
       <Value Profile="(Default)">10, 20</Value>
     </Setting>
-    <Setting Name="intervalText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Never</Value>
-    </Setting>
     <Setting Name="timerOn" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="intervalTime" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">60000</Value>
+    </Setting>
+    <Setting Name="intervalText" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

@@ -49,18 +49,6 @@ namespace Weather.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Never")]
-        public string intervalText {
-            get {
-                return ((string)(this["intervalText"]));
-            }
-            set {
-                this["intervalText"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool timerOn {
             get {
@@ -80,6 +68,18 @@ namespace Weather.Properties {
             }
             set {
                 this["intervalTime"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string intervalText {
+            get {
+                return ((string)(this["intervalText"]));
+            }
+            set {
+                this["intervalText"] = value;
             }
         }
     }

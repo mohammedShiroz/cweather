@@ -36,15 +36,15 @@ namespace Weather
             //Set delay from minutes to milliseconds
             getDelay(comboBoxEdit1.Text);
             
-            
             //Get Weather
             City = txtCity.Text;
             getWeather(City);
 
             //Set timer1
-            if (delay < 60000)
+            if (comboBoxEdit1.Text == "Never")
             {
                 timer1.Enabled = false;
+                timer1.Interval = 1;
             }
             else
             {
@@ -117,7 +117,6 @@ namespace Weather
             
         }
 
-
         private void WeatherForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             //Save Settings
@@ -135,15 +134,12 @@ namespace Weather
             getWeather(City);
         }
 
-        private void comboBoxEdit1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
 
         private void getDelay(string Selection)
         {
             //Set the delay based on User Selection
             if (Selection == "Never")
-                delay = 0;
+                delay = 1;
             if (Selection == "1 Minute")
                 delay = 1;
             if (Selection == "2 Minutes")
