@@ -76,7 +76,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>B15ehhkLRtEapCyZKviV7x95FEc=</dsig:DigestValue>
+        <dsig:DigestValue>J18v11GSlnOI+DhrL+AU+R2VXU8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -89,13 +89,13 @@
       <dsig:DigestValue>aaJRpn7hQBK3FYcTgf0vwiFtArg=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Weather.exe.config" size="1760">
+  <file name="Weather.exe.config" size="1746">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>G480digwREZ88WLa9EEmr8N3AP4=</dsig:DigestValue>
+      <dsig:DigestValue>8QjWilDwHENcTRjrcV+gX/rYV0k=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
