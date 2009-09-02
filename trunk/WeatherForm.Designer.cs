@@ -57,15 +57,15 @@
             this.lblDay3High = new System.Windows.Forms.Label();
             this.lblDay3Cond = new System.Windows.Forms.Label();
             this.lblDay3 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.lblCity = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.comboBoxEdit1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.icnCurrent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icnToday)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icnTomorrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icnDay2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icnDay3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtCity
@@ -291,34 +291,6 @@
             this.lblDay3.TabIndex = 23;
             this.lblDay3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // timer1
-            // 
-            this.timer1.Enabled = global::Weather.Properties.Settings.Default.timerOn;
-            this.timer1.Interval = global::Weather.Properties.Settings.Default.intervalTime;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // comboBoxEdit1
-            // 
-            this.comboBoxEdit1.EditValue = "Select AutoUpdate Interval";
-            this.comboBoxEdit1.Location = new System.Drawing.Point(231, 13);
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Properties.Items.AddRange(new object[] {
-            "Never",
-            "1 Minute",
-            "2 Minutes",
-            "5 Minutes",
-            "10 Minutes",
-            "30 Minutes",
-            "1 Hour",
-            "2 Hours",
-            "4 Hours"});
-            this.comboBoxEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.comboBoxEdit1.Size = new System.Drawing.Size(172, 20);
-            this.comboBoxEdit1.TabIndex = 29;
-            this.comboBoxEdit1.SelectedIndexChanged += new System.EventHandler(this.comboBoxEdit1_SelectedIndexChanged);
-            // 
             // lblCity
             // 
             this.lblCity.AutoSize = true;
@@ -329,12 +301,48 @@
             this.lblCity.Size = new System.Drawing.Size(0, 25);
             this.lblCity.TabIndex = 30;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // comboBoxEdit1
+            // 
+            this.comboBoxEdit1.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Weather.Properties.Settings.Default, "intervalText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.comboBoxEdit1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEdit1.FormattingEnabled = true;
+            this.comboBoxEdit1.Items.AddRange(new object[] {
+            "Never",
+            "1 Minute",
+            "2 Minutes",
+            "5 Minutes",
+            "10 Minutes",
+            "30 Minutes",
+            "1 Hour",
+            "2 Hours",
+            "4 Hours"});
+            this.comboBoxEdit1.Location = new System.Drawing.Point(555, 11);
+            this.comboBoxEdit1.Name = "comboBoxEdit1";
+            this.comboBoxEdit1.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxEdit1.TabIndex = 31;
+            this.comboBoxEdit1.Text = global::Weather.Properties.Settings.Default.intervalText;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(482, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(67, 13);
+            this.label2.TabIndex = 32;
+            this.label2.Text = "AutoUpdate:";
+            // 
             // WeatherForm
             // 
             this.AcceptButton = this.getW;
             this.ClientSize = new System.Drawing.Size(688, 197);
-            this.Controls.Add(this.lblCity);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxEdit1);
+            this.Controls.Add(this.lblCity);
             this.Controls.Add(this.icnDay3);
             this.Controls.Add(this.lblDay3Low);
             this.Controls.Add(this.lblDay3High);
@@ -377,7 +385,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.icnTomorrow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icnDay2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icnDay3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -418,8 +425,9 @@
         private System.Windows.Forms.Label lblDay3Cond;
         private System.Windows.Forms.Label lblDay3;
         private System.Windows.Forms.Timer timer1;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
         private System.Windows.Forms.Label lblCity;
+        private System.Windows.Forms.ComboBox comboBoxEdit1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
