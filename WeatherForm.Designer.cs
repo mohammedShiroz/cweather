@@ -85,6 +85,7 @@
             // 
             // getW
             // 
+            this.getW.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.getW.Location = new System.Drawing.Point(132, 11);
             this.getW.Name = "getW";
             this.getW.Size = new System.Drawing.Size(93, 23);
@@ -339,6 +340,7 @@
             // WeatherForm
             // 
             this.AcceptButton = this.getW;
+            this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(688, 197);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxEdit1);
@@ -370,8 +372,10 @@
             this.Controls.Add(this.getW);
             this.Controls.Add(this.icnCurrent);
             this.Controls.Add(this.txtCity);
+            this.DataBindings.Add(new System.Windows.Forms.Binding("Location", global::Weather.Properties.Settings.Default, "windowPosition", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.ForeColor = System.Drawing.SystemColors.Control;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Location = new System.Drawing.Point(10, 20);
+            this.Location = global::Weather.Properties.Settings.Default.windowPosition;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "WeatherForm";
