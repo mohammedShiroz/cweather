@@ -61,6 +61,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.comboBoxEdit1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.comboLang = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.icnCurrent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icnToday)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icnTomorrow)).BeginInit();
@@ -337,11 +338,29 @@
             this.label2.TabIndex = 32;
             this.label2.Text = "AutoUpdate:";
             // 
+            // comboLang
+            // 
+            this.comboLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboLang.FormattingEnabled = true;
+            this.comboLang.Items.AddRange(new object[] {
+            "English (GB)",
+            "English (US)",
+            "Deutsch",
+            "Français",
+            "Italiano",
+            "日本語",
+            "Русский"});
+            this.comboLang.Location = new System.Drawing.Point(283, 11);
+            this.comboLang.Name = "comboLang";
+            this.comboLang.Size = new System.Drawing.Size(121, 21);
+            this.comboLang.TabIndex = 33;
+            // 
             // WeatherForm
             // 
             this.AcceptButton = this.getW;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(688, 197);
+            this.Controls.Add(this.comboLang);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxEdit1);
             this.Controls.Add(this.lblCity);
@@ -432,6 +451,7 @@
         private System.Windows.Forms.Label lblCity;
         private System.Windows.Forms.ComboBox comboBoxEdit1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboLang;
     }
 }
 

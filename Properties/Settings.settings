@@ -17,5 +17,8 @@
     <Setting Name="intervalText" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="defaultLang" Type="System.String" Scope="User">
+      <Value Profile="(Default)">English (US)</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
