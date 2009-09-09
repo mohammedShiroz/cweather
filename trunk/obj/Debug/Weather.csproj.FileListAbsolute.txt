@@ -64,3 +64,11 @@ C:\VSProjects\obj\Debug\Weather.WeatherForm.resources
 C:\VSProjects\obj\Debug\Weather.Properties.Resources.resources
 C:\VSProjects\obj\Debug\Weather.csproj.GenerateResource.Cache
 C:\VSProjects\obj\Debug\Weather.exe.licenses
+C:\VSProjects\bin\Debug\Weather.exe.manifest
+C:\VSProjects\bin\Debug\Weather.application
+C:\VSProjects\bin\Debug\Weather.exe
+C:\VSProjects\bin\Debug\Weather.pdb
+C:\VSProjects\bin\Debug\Animaonline Weather API.dll
+C:\VSProjects\obj\Debug\Weather.TrustInfo.xml
+C:\VSProjects\obj\Debug\Weather.exe.manifest
+C:\VSProjects\obj\Debug\Weather.application

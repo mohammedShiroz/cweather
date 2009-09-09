@@ -13,22 +13,27 @@ namespace Weather
 {
     public partial class WeatherForm : Form
     {
+        LanguageCode Lang;
+        
+
         public WeatherForm()
         {
             InitializeComponent();
-            
+            delay = 1;
             //Load settings
             delay = Settings.Default.intervalTime;
             txtCity.Text = Settings.Default.defaultCity;
             if (txtCity.Text == "")
-                txtCity.Text = "Chicago";
+                txtCity.Text = "North Richland Hills, TX";
             this.Location = Settings.Default.windowPosition;
             comboBoxEdit1.Text = Settings.Default.intervalText;
+            comboLang.Text = Settings.Default.defaultLang;
             timer1.Enabled = Settings.Default.timerOn;
 
             //Get Initial Weather
             City = txtCity.Text;
-            getWeather(City);
+            getLang(comboLang.Text);
+            getWeather(Lang, City);
         }
 
         private void getW_Click(object sender, EventArgs e)
@@ -38,10 +43,16 @@ namespace Weather
             
             //Get Weather
             City = txtCity.Text;
-            getWeather(City);
+            getLang(comboLang.Text);
+            getWeather(Lang, City);
 
             //Set timer1
             if (comboBoxEdit1.Text == "Never")
+            {
+                timer1.Enabled = false;
+                timer1.Interval = 1;
+            }
+            if (comboBoxEdit1.Text == "")
             {
                 timer1.Enabled = false;
                 timer1.Interval = 1;
@@ -54,12 +65,12 @@ namespace Weather
             
         }
 
-        private void getWeather(string City)
+        private void getWeather(LanguageCode Lang, string City)
         {
             try
             {
                 //Get the data
-                wD = WeatherAPI.GetWeather(LanguageCode.en_US, City);
+                wD = WeatherAPI.GetWeather(Lang, City);
 
                 //Set image locations
                 string baseURL = "http://www.google.com";
@@ -125,13 +136,14 @@ namespace Weather
             Settings.Default.windowPosition = this.Location;
             Settings.Default.timerOn = timer1.Enabled;
             Settings.Default.intervalTime = delay;
+            Settings.Default.defaultLang = comboLang.Text;
             Settings.Default.Save();            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             //Refresh Weather Data
-            getWeather(City);
+            getWeather(Lang, City);
         }
 
 
@@ -161,5 +173,28 @@ namespace Weather
             delay = (delay * 60000);
             
         }
+
+        private void getLang(string lSelection)
+        {
+            if (lSelection == "English (GB)")
+                Lang = LanguageCode.en_GB;
+            if (lSelection == "English (US)")
+                Lang = LanguageCode.en_US;
+            if (lSelection == "Deutsch")
+                Lang = LanguageCode.de_DE;
+            if (lSelection == "Français")
+                Lang = LanguageCode.fr_FR;
+            if (lSelection == "日本語")
+                Lang = LanguageCode.ja_JP;
+            if (lSelection == "Italiano")
+                Lang = LanguageCode.it_IT;
+            if (lSelection == "Русский")
+                Lang = LanguageCode.ru_RU;
+            if (lSelection == "")
+                Lang = LanguageCode.en_US;
+            
+        }
+
+        }
     }
-}
+
