@@ -56,3 +56,11 @@ C:\Export\cWeather\bin\Debug\Animaonline Weather API.dll
 C:\Export\cWeather\obj\Debug\Weather.TrustInfo.xml
 C:\Export\cWeather\obj\Debug\Weather.exe.manifest
 C:\Export\cWeather\obj\Debug\Weather.application
+C:\VSProjects\bin\Debug\Weather.exe.config
+C:\VSProjects\obj\Debug\Weather.exe
+C:\VSProjects\obj\Debug\Weather.pdb
+C:\VSProjects\obj\Debug\ResolveAssemblyReference.cache
+C:\VSProjects\obj\Debug\Weather.WeatherForm.resources
+C:\VSProjects\obj\Debug\Weather.Properties.Resources.resources
+C:\VSProjects\obj\Debug\Weather.csproj.GenerateResource.Cache
+C:\VSProjects\obj\Debug\Weather.exe.licenses
