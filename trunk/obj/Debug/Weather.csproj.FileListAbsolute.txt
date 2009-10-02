@@ -72,3 +72,6 @@ C:\VSProjects\bin\Debug\Animaonline Weather API.dll
 C:\VSProjects\obj\Debug\Weather.TrustInfo.xml
 C:\VSProjects\obj\Debug\Weather.exe.manifest
 C:\VSProjects\obj\Debug\Weather.application
+C:\Documents and Settings\Shop 1\Shop1 Documents\VSProjects\bin\Debug\Weather.exe.config
+C:\Documents and Settings\Shop 1\Shop1 Documents\VSProjects\obj\Debug\Weather.exe
+C:\Documents and Settings\Shop 1\Shop1 Documents\VSProjects\obj\Debug\Weather.pdb
