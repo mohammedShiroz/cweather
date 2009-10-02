@@ -354,6 +354,7 @@
             this.comboLang.Name = "comboLang";
             this.comboLang.Size = new System.Drawing.Size(121, 21);
             this.comboLang.TabIndex = 33;
+            this.comboLang.SelectedIndexChanged += new System.EventHandler(this.comboLang_SelectedIndexChanged);
             // 
             // WeatherForm
             // 
