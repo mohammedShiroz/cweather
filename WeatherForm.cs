@@ -14,7 +14,11 @@ namespace Weather
     public partial class WeatherForm : Form
     {
         LanguageCode Lang;
-        
+        string high;
+        string low;
+        string temp;
+        bool celsius;
+        string degree;
 
         public WeatherForm()
         {
@@ -27,6 +31,7 @@ namespace Weather
                 txtCity.Text = "North Richland Hills, TX";
             this.Location = Settings.Default.windowPosition;
             comboBoxEdit1.Text = Settings.Default.intervalText;
+            City = txtCity.Text;
             comboLang.Text = Settings.Default.defaultLang;
             timer1.Enabled = Settings.Default.timerOn;
 
@@ -70,7 +75,7 @@ namespace Weather
             try
             {
                 //Get the data
-                wD = WeatherAPI.GetWeather(Lang, City);
+                wD = WeatherAPI.GetWeather(Lang, City, celsius);
 
                 //Set image locations
                 string baseURL = "http://www.google.com";
@@ -90,32 +95,32 @@ namespace Weather
                 //Current Conditions
                 lblCity.Text = wD.city;
                 lblCurrentCond.Text = wD.condition;
-                lblCurrentF.Text = "Temperature: " + wD.temp_f.ToString() + "°F";
+                lblCurrentF.Text = temp + ": " + wD.temp_f.ToString() + degree;
                 lblWind.Text = wD.wind_condition;
 
                 //Day 2's Conditions
                 lblDay2.Text = wD.day_of_weekDAY2;
                 lblDay2Cond.Text = wD.conditionDAY2;
-                lblDay2High.Text = "High:  " + wD.highDAY2.ToString() + "°F";
-                lblDay2Low.Text = "Low:  " + wD.lowDAY2.ToString() + "°F";
+                lblDay2High.Text = high + ":  " + wD.highDAY2.ToString() + degree;
+                lblDay2Low.Text = low + ":  " + wD.lowDAY2.ToString() + degree;
 
                 //Day 3's Conditions
                 lblDay3.Text = wD.day_of_weekDAY3;
                 lblDay3Cond.Text = wD.conditionDAY3;
-                lblDay3High.Text = "High:  " + wD.highDAY3.ToString() + "°F";
-                lblDay3Low.Text = "Low:  " + wD.lowDAY3.ToString() + "°F";
+                lblDay3High.Text = high + ":  " + wD.highDAY3.ToString() + degree;
+                lblDay3Low.Text = low + ":  " + wD.lowDAY3.ToString() + degree;
 
                 //Today's Conditions
                 lblToday.Text = wD.day_of_weekTODAY;
                 lblTodayCond.Text = wD.conditionTODAY;
-                lblTodayHigh.Text = "High:  " + wD.highTODAY.ToString() + "°F";
-                lblTodayLow.Text = "Low:  " + wD.lowTODAY.ToString() + "°F";
+                lblTodayHigh.Text = high + ":  " + wD.highTODAY.ToString() + degree;
+                lblTodayLow.Text = low + ":  " + wD.lowTODAY.ToString() + degree;
 
                 //Tomorrow's Conditions
                 lblTomorrow.Text = wD.day_of_weekTOMORROW;
                 lblTomorrowCond.Text = wD.conditionTOMORROW;
-                lblTomorrowHigh.Text = "High:  " + wD.highTOMORROW.ToString() + "°F";
-                lblTomorrowLow.Text = "Low:  " + wD.lowTOMORROW.ToString() + "°F";
+                lblTomorrowHigh.Text = high + ":  " + wD.highTOMORROW.ToString() + degree;
+                lblTomorrowLow.Text = low + ":  " + wD.lowTOMORROW.ToString() + degree;
             }
             catch (Exception ex)
             {
@@ -177,22 +182,84 @@ namespace Weather
         private void getLang(string lSelection)
         {
             if (lSelection == "English (GB)")
+            {
                 Lang = LanguageCode.en_GB;
+                temp = "Temperature";
+                high = "High";
+                low = "Low";
+                celsius = true;
+                degree = "°C";
+            }
             if (lSelection == "English (US)")
+            {
                 Lang = LanguageCode.en_US;
+                temp = "Temperature";
+                high = "High";
+                low = "Low";
+                celsius = false;
+                degree = "°F";
+            }
             if (lSelection == "Deutsch")
+            {
                 Lang = LanguageCode.de_DE;
+                temp = "Temperatur";
+                high = "Hoch";
+                low = "Niedrig";
+                celsius = true;
+                degree = "°C";
+            }
             if (lSelection == "Français")
+            {
                 Lang = LanguageCode.fr_FR;
+                temp = "Température";
+                high = "Haut";
+                low = "Bas";
+                celsius = true;
+                degree = "°C";
+            }
             if (lSelection == "日本語")
+            {
                 Lang = LanguageCode.ja_JP;
+                temp = "温度";
+                high = "高い";
+                low = "低い";
+                celsius = true;
+                degree = "°C";
+            }
             if (lSelection == "Italiano")
+            {
                 Lang = LanguageCode.it_IT;
+                temp = "Temperatura";
+                high = "Alto";
+                low = "Basso";
+                celsius = true;
+                degree = "°C";
+            }
             if (lSelection == "Русский")
+            {
                 Lang = LanguageCode.ru_RU;
+                temp = "Температура";
+                high = "Высокий";
+                low = "Низко";
+                celsius = true;
+                degree = "°C";
+            }
             if (lSelection == "")
+            {
                 Lang = LanguageCode.en_US;
+                temp = "Temperature";
+                high = "High";
+                low = "Low";
+                celsius = false;
+                degree = "°F";
+            }
             
+        }
+
+        private void comboLang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            getLang(comboLang.Text);
+            getWeather(Lang, City);
         }
 
         }
